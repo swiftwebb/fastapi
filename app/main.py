@@ -22,7 +22,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+@app.get("/")
+def root():
+    return {"message": "Hello World 221"}
 
 
 # @app.get("/posts", response_model= List[schemas.Post])
