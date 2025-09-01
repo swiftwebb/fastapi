@@ -96,7 +96,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [job1]
     steps:
       - name: pulling git repo
         uses: echo "hii"
