@@ -22,7 +22,7 @@ jobs:
           POSTGRES_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
           POSTGRES_DB: ${{secrets.DATABASE_NAME}}_test
         options: >-
-          --health-cmd="pg_isready -U ${{secrets.DATABASE_USERNAME}} -d ${{secrets.DATABASE_NAME}}_test"
+          --health-cmd="pg_isready"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
