@@ -99,7 +99,11 @@ jobs:
     needs: [job1]
     steps:
       - name: deploying stuff
-        uses: echo "hii"
+        uses: actions/checkout@v2
+
+
+      - name: test echo
+        run: echo "hii" 
       
      
       
