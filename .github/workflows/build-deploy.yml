@@ -75,35 +75,35 @@ jobs:
 
 
 
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: [build]
-  #   environment:
-  #     name: production
-  #   steps:
-  #     - name: pulling git repo
-  #       uses: actions/checkout@v2
-      
-  #     - name: deploy to Render
-  #       run: |
-  #         curl -X POST "$RENDER_DEPLOY_HOOK"
-  #       env:
-  #         RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
-      
-
-
-
-
   deploy:
     runs-on: ubuntu-latest
     needs: [job1]
+    environment:
+      name: production
     steps:
-      - name: deploying stuff
+      - name: pulling git repo
         uses: actions/checkout@v2
+      
+      - name: deploy to Render
+        run: |
+          curl -X POST "$RENDER_DEPLOY_HOOK"
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+      
 
 
-      - name: test echo
-        run: echo "hii" 
+
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: [job1]
+  #   steps:
+  #     - name: deploying stuff
+  #       uses: actions/checkout@v2
+
+
+  #     - name: test echo
+  #       run: echo "hii" 
       
      
       
