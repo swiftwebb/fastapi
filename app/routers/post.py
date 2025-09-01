@@ -200,6 +200,9 @@ def delete_p(id: int,  db: Session = Depends(get_db), current_user: int=Depends(
 def update_pppp(id:int, nn:schemas.PostCreate, db: Session = Depends(get_db), current_user: int=Depends(oauth2.get_current_user)):
    update_query = db.query(models.Post).filter(models.Post.id==id)
    post = update_query.first()
+   if post == None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"post with id: {id} does not exist")
    if post.owner_id != current_user.id:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail = f"you are not the owner of this post")
    ppp = update_query.update(nn.dict(), synchronize_session=False)
