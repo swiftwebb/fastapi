@@ -1,17 +1,21 @@
 
 name: Build and Deploy Code
 
-on: [push, pull_request]
- 
-jobs:
-  job1:
-    run-on: ubuntu-latest
-    steps:
-      - name: pulling git repo
-        uses: actions/checkout@v2
-      - name: say hi ope
-        run: echo hi ope
+on: 
+  push:
+    branches: [ main ]   # runs when you push to main
+  pull_request:
+    branches: [ main ]   # runs on PR to main
 
+jobs:
+  build:
+    runs-on: ubuntu-latest   # correct key is 'runs-on', not 'run-on'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3   # updated version
+
+      - name: Say Hi
+        run: echo "hi ope 🎉"
 
 
 
