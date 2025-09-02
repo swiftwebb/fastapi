@@ -115,7 +115,7 @@ jobs:
           username: ${{secrets.PROD_USERNAME}}
           key: ${{secrets.EC2_SSH_KEY}}
           script: |
-            cd /home/ubuntu/app/src
+            cd /home/ope/app/src
             git pull
             sudo systemctl restart api
       # cd /app/src
