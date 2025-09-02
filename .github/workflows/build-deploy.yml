@@ -113,7 +113,7 @@ jobs:
         with:
           host: ${{secrets.PROD_HOST}}
           username: ${{secrets.PROD_USERNAME}}
-          key: ${{secrets.EC2_SSH_KEY}}
+          key: ${{secrets.PROD_PASSWORD}}
          
           
           script: |
