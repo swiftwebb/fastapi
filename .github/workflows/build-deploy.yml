@@ -113,13 +113,13 @@ jobs:
         with:
           host: ${{secrets.PROD_HOST}}
           username: ${{secrets.PROD_USERNAME}}
-          key: ${{secrets.PROD_PASSWORD}}
+          key: ${{secrets.EC2_SSH_KEY}}
          
           
           script: |
             cd app/src
             git pull
-            echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart api
+            echo ${{secrets.EC2_SSH_KEY}} | sudo -S systemctl restart api
       # cd /app/src
       # git pull
       # systemctl restart api
