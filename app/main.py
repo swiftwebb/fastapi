@@ -24,7 +24,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "Hello World "}
+    return {"message": "Hello World m "}
 
 
 # @app.get("/posts", response_model= List[schemas.Post])
